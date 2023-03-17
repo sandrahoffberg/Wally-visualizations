@@ -19,7 +19,7 @@ fi
 
 
 if [ -z ${2} ]; then
-    end_position=100000
+    end_position=1000000
 else
     end_position=${2}
 fi

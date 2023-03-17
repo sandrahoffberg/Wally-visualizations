@@ -1,4 +1,4 @@
-# hash:sha256:74d5fa79ad6913a040e016e339e8bf08eaca4b169f000c6a67f2c489908b0bae
+# hash:sha256:772f5894ba4ee902794045335efd37ee4320e7f5256c53443cd4ddaa6dbdcce8
 FROM registry.apps.codeocean.com/codeocean/miniconda3:22.11.1
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -32,6 +32,11 @@ RUN apt-get update \
         pkg-config=0.29.2-1 \
         zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 \
     && rm -rf /var/lib/apt/lists/*
+
+RUN conda install -y --channel=bioconda --channel=conda-forge \
+        libpng==1.6.39 \
+        samtools==1.16.1 \
+    && conda clean -ya
 
 COPY postInstall /
 RUN /postInstall
