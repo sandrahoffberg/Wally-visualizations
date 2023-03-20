@@ -1,4 +1,4 @@
-# hash:sha256:a19db70b5df9fd7e036da280f80f15498bb7b822bf1c5b59179e6b7fa980ed4b
+# hash:sha256:c566724bbcf2e20a921f5000768fe02f4ab7c11e26f9446a522230f80a88098d
 FROM registry.apps.codeocean.com/codeocean/mambaforge:22.9.0-3
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -11,6 +11,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         autoconf=2.69-11.1 \
         automake=1:1.16.1-4ubuntu6 \
+        awscli=1.18.69-1ubuntu0.20.04.1 \
         build-essential=12.8ubuntu1.1 \
         ca-certificates=20211016ubuntu0.20.04.1 \
         cmake=3.16.3-1ubuntu1.20.04.1 \
@@ -30,6 +31,7 @@ RUN apt-get update \
         liblzma-dev=5.2.4-1ubuntu1.1 \
         libncurses-dev=6.2-0ubuntu2 \
         pkg-config=0.29.1-0ubuntu4 \
+        wget=1.20.3-1ubuntu2 \
         zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 \
     && rm -rf /var/lib/apt/lists/*
 
