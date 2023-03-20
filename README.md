@@ -4,7 +4,7 @@
 
 # Visualization of genomic variants in Wally
 
-Wally creates a genomic alignment plot of the region specified in the App Panel, based off of the Integrated Genome Viewer.  
+Wally creates a genomic alignment plot of the region specified in the App Panel, based off of the Integrative Genomics Viewer.  
 
 
 ## Input data 
