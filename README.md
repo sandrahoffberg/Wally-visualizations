@@ -4,7 +4,7 @@
 
 # Visualization of genomic variants in Wally
 
-Wally outputs a genomic alignment plot of the region specified in the App Panel,  
+Wally creates a genomic alignment plot of the region specified in the App Panel,  
 pairwise dotplots of a FASTA file or reads extracted from the BAM file can be used to generate a reference-independent dotplot that includes the genomic mapping locations of read segments.
 
 

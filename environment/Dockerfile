@@ -1,5 +1,5 @@
-# hash:sha256:772f5894ba4ee902794045335efd37ee4320e7f5256c53443cd4ddaa6dbdcce8
-FROM registry.apps.codeocean.com/codeocean/miniconda3:22.11.1
+# hash:sha256:91b6bf3beed63bb83d65f46ac700c3ff310af1eb66879d9bace0e9780fe36771
+FROM registry.apps.codeocean.com/codeocean/mambaforge:22.9.0-3
 
 ARG DEBIAN_FRONTEND=noninteractive
 
