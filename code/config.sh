@@ -82,7 +82,7 @@ fi
 
 
 ## SV discovery options in delly call
-if [ ${8} -- "no" ]; then
+if [ ${8} == "no" ]; then
     supplementary_alignments=
 else
     supplementary_alignments=--supplementary
@@ -90,7 +90,7 @@ fi
 
 
 ## SV discovery options in delly call
-if [ ${9} -- "no" ]; then
+if [ ${9} == "no" ]; then
     show_clips=
 else
     show_clips=--clip

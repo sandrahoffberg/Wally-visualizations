@@ -1,4 +1,4 @@
-# hash:sha256:91b6bf3beed63bb83d65f46ac700c3ff310af1eb66879d9bace0e9780fe36771
+# hash:sha256:a19db70b5df9fd7e036da280f80f15498bb7b822bf1c5b59179e6b7fa980ed4b
 FROM registry.apps.codeocean.com/codeocean/mambaforge:22.9.0-3
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -9,28 +9,28 @@ COPY git-askpass /
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        autoconf=2.69-14 \
-        automake=1:1.16.3-2 \
-        build-essential=12.9 \
-        ca-certificates=20210119 \
-        cmake=3.18.4-2+deb11u1 \
-        gcc=4:10.2.1-1 \
-        gfortran=4:10.2.1-1 \
-        git=1:2.30.2-1+deb11u2 \
-        hdf5-tools=1.10.6+repack-4+deb11u1 \
-        libboost-date-time-dev=1.74.0.3 \
-        libboost-filesystem-dev=1.74.0.3 \
-        libboost-iostreams-dev=1.74.0.3 \
-        libboost-program-options-dev=1.74.0.3 \
-        libboost-system-dev=1.74.0.3 \
-        libbz2-dev=1.0.8-4 \
-        libcurl4-gnutls-dev=7.74.0-1.3+deb11u7 \
-        libdeflate-dev=1.7-1 \
-        libhdf5-dev=1.10.6+repack-4+deb11u1 \
-        liblzma-dev=5.2.5-2.1~deb11u1 \
-        libncurses-dev=6.2+20201114-2 \
-        pkg-config=0.29.2-1 \
-        zlib1g-dev=1:1.2.11.dfsg-2+deb11u2 \
+        autoconf=2.69-11.1 \
+        automake=1:1.16.1-4ubuntu6 \
+        build-essential=12.8ubuntu1.1 \
+        ca-certificates=20211016ubuntu0.20.04.1 \
+        cmake=3.16.3-1ubuntu1.20.04.1 \
+        gcc=4:9.3.0-1ubuntu2 \
+        gfortran=4:9.3.0-1ubuntu2 \
+        git=1:2.25.1-1ubuntu3.10 \
+        hdf5-tools=1.10.4+repack-11ubuntu1 \
+        libboost-date-time-dev=1.71.0.0ubuntu2 \
+        libboost-filesystem-dev=1.71.0.0ubuntu2 \
+        libboost-iostreams-dev=1.71.0.0ubuntu2 \
+        libboost-program-options-dev=1.71.0.0ubuntu2 \
+        libboost-system-dev=1.71.0.0ubuntu2 \
+        libbz2-dev=1.0.8-2 \
+        libcurl4-gnutls-dev=7.68.0-1ubuntu2.18 \
+        libdeflate-dev=1.5-3 \
+        libhdf5-dev=1.10.4+repack-11ubuntu1 \
+        liblzma-dev=5.2.4-1ubuntu1.1 \
+        libncurses-dev=6.2-0ubuntu2 \
+        pkg-config=0.29.1-0ubuntu4 \
+        zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN conda install -y --channel=bioconda --channel=conda-forge \
