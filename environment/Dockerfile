@@ -1,5 +1,5 @@
-# hash:sha256:c566724bbcf2e20a921f5000768fe02f4ab7c11e26f9446a522230f80a88098d
-FROM registry.apps.codeocean.com/codeocean/mambaforge:22.9.0-3
+# hash:sha256:d44a0642c51828563a5f76ce2fa537d8d9faf7571717f60be4c212a84efad498
+FROM registry.apps.codeocean.com/codeocean/py-r:python3.10.12-R4.2.3-IRkernel-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -9,30 +9,30 @@ COPY git-askpass /
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        autoconf=2.69-11.1 \
-        automake=1:1.16.1-4ubuntu6 \
-        awscli=1.18.69-1ubuntu0.20.04.1 \
-        build-essential=12.8ubuntu1.1 \
-        ca-certificates=20211016ubuntu0.20.04.1 \
-        cmake=3.16.3-1ubuntu1.20.04.1 \
-        gcc=4:9.3.0-1ubuntu2 \
-        gfortran=4:9.3.0-1ubuntu2 \
-        git=1:2.25.1-1ubuntu3.10 \
-        hdf5-tools=1.10.4+repack-11ubuntu1 \
-        libboost-date-time-dev=1.71.0.0ubuntu2 \
-        libboost-filesystem-dev=1.71.0.0ubuntu2 \
-        libboost-iostreams-dev=1.71.0.0ubuntu2 \
-        libboost-program-options-dev=1.71.0.0ubuntu2 \
-        libboost-system-dev=1.71.0.0ubuntu2 \
-        libbz2-dev=1.0.8-2 \
-        libcurl4-gnutls-dev=7.68.0-1ubuntu2.18 \
-        libdeflate-dev=1.5-3 \
-        libhdf5-dev=1.10.4+repack-11ubuntu1 \
-        liblzma-dev=5.2.4-1ubuntu1.1 \
-        libncurses-dev=6.2-0ubuntu2 \
-        pkg-config=0.29.1-0ubuntu4 \
-        wget=1.20.3-1ubuntu2 \
-        zlib1g-dev=1:1.2.11.dfsg-2ubuntu1.5 \
+        autoconf=2.71-2 \
+        automake=1:1.16.5-1.3 \
+        awscli=1.22.34-1 \
+        build-essential=12.9ubuntu3 \
+        ca-certificates=20230311ubuntu0.22.04.1 \
+        cmake=3.22.1-1ubuntu1.22.04.1 \
+        gcc=4:11.2.0-1ubuntu1 \
+        gfortran=4:11.2.0-1ubuntu1 \
+        git=1:2.34.1-1ubuntu1.9 \
+        hdf5-tools=1.10.7+repack-4ubuntu2 \
+        libboost-date-time-dev=1.74.0.3ubuntu7 \
+        libboost-filesystem-dev=1.74.0.3ubuntu7 \
+        libboost-iostreams-dev=1.74.0.3ubuntu7 \
+        libboost-program-options-dev=1.74.0.3ubuntu7 \
+        libboost-system-dev=1.74.0.3ubuntu7 \
+        libbz2-dev=1.0.8-5build1 \
+        libcurl4-gnutls-dev=7.81.0-1ubuntu1.13 \
+        libdeflate-dev=1.10-2 \
+        libhdf5-dev=1.10.7+repack-4ubuntu2 \
+        liblzma-dev=5.2.5-2ubuntu1 \
+        libncurses-dev=6.3-2ubuntu0.1 \
+        pkg-config=0.29.2-1ubuntu3 \
+        wget=1.21.2-2ubuntu1 \
+        zlib1g-dev=1:1.2.11.dfsg-2ubuntu9.2 \
     && rm -rf /var/lib/apt/lists/*
 
 RUN conda install -y --channel=bioconda --channel=conda-forge \

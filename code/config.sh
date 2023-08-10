@@ -41,36 +41,40 @@ fi
 
 
 
-
-
-
 if [ -z ${3} ]; then
-    start_position=10000
+    chromosome=chr11
 else
-    start_position=${3}
+    chromosome=${3}
 fi
 
 
 if [ -z ${4} ]; then
+    start_position=10000
+else
+    start_position=${4}
+fi
+
+
+if [ -z ${5} ]; then
     end_position=1000000
 else
-    end_position=${4}
+    end_position=${5}
 fi
 
 
 
-if [ -z ${5} ]; then
-    file_name=plot
+if [ -z ${6} ]; then
+    file_name="plot"
 else
-    file_name=${5}
+    file_name="${6}"
 fi
 
 
 # If a reference file has not been specified in the app panel, find it
-if [ -z ${6} ]; then
+if [ -z ${7} ]; then
     reference=$(find -L ../data/ -name "*.fa")
 else
-    reference=${6}
+    reference=${7}
 fi
 
 # Check that there is only 1 reference
@@ -90,65 +94,57 @@ reference=$PWD/${reference}
 
 ## Auxilliary Parameters
 
-## SV discovery options in delly call
-if [ -z ${7} ]; then
-    min_read_map_quality_discovery=
+if [ -z ${8} ]; then
+    min_read_map_quality_discovery=""
 else
-    min_read_map_quality_discovery=--map_qual ${7}
+    min_read_map_quality_discovery="--map_qual ${8}"
 fi
 
 
-# If a reference file has not been specified in the app panel, find it
-if [ -z ${8} ]; then
+if [ -z ${9} ]; then
     BED_file=$(find -L ../data/ -name "*.bed")
 else
-    BED_file=${8}
+    BED_file=${9}
 fi
 
 
-## SV discovery options in delly call
-if [ ${9} == "no" ]; then
-    paired_end_view=
+if [ "${10}" == "no" ]; then
+    paired_end_view=""
 else
-    paired_end_view=--paired
+    paired_end_view="--paired"
 fi
 
 
-## SV discovery options in delly call
-if [ ${10} == "no" ]; then
-    supplementary_alignments=
+if [ "${11}" == "no" ]; then
+    supplementary_alignments=""
 else
-    supplementary_alignments=--supplementary
+    supplementary_alignments="--supplementary"
 fi
 
 
-## SV discovery options in delly call
-if [ ${11} == "no" ]; then
-    show_clips=
+if [ "${12}" == "no" ]; then
+    show_clips=""
 else
-    show_clips=--clip
+    show_clips="--clip"
 fi
 
 
-## SV discovery options in delly call
-if [ -z ${12} ]; then
-    num_horizontal_images=
-else
-    num_horizontal_images=--split ${12}
-fi
-
-
-## SV discovery options in delly call
 if [ -z ${13} ]; then
-    plot_width=
+    num_horizontal_images=""
 else
-    plot_width=--width ${13}
+    num_horizontal_images="--split ${13}"
 fi
 
 
-## SV discovery options in delly call
 if [ -z ${14} ]; then
-    plot_height=
+    plot_width=""
 else
-    plot_height=--height ${14}
+    plot_width="--width ${14}"
+fi
+
+
+if [ -z ${15} ]; then
+    plot_height=""
+else
+    plot_height="--height ${15}"
 fi
