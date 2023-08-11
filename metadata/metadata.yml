@@ -1,7 +1,7 @@
 metadata_version: 1
 name: Wally visualizations
 description: |-
-  Wally creates a genomic alignment plot of the region specified
+  Wally creates a genomic alignment plot of reads in a specified region mapped to a reference.
 
   https://github.com/tobiasrausch/wally
 tags:

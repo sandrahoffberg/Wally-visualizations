@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
+cd /opt
+
 git clone --recursive https://github.com/tobiasrausch/wally.git
-
+ 
 cd wally/
-
+ 
 make all

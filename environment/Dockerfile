@@ -1,4 +1,4 @@
-# hash:sha256:d44a0642c51828563a5f76ce2fa537d8d9faf7571717f60be4c212a84efad498
+# hash:sha256:a16f1c873dd898dbded4f2d4c1bef2da5e94cc6f9e2b13834df10eb2a748e70a
 FROM registry.apps.codeocean.com/codeocean/py-r:python3.10.12-R4.2.3-IRkernel-ubuntu22.04
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -35,10 +35,10 @@ RUN apt-get update \
         zlib1g-dev=1:1.2.11.dfsg-2ubuntu9.2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN conda install -y --channel=bioconda --channel=conda-forge \
+RUN mamba install -y --channel=conda-forge --channel=bioconda \
         libpng==1.6.39 \
-        samtools==1.16.1 \
-    && conda clean -ya
+        samtools==1.17 \
+    && mamba clean -ya
 
 COPY postInstall /
 RUN /postInstall
