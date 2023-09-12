@@ -12,69 +12,40 @@ fi
 
 
 
-# URL of the s3 bucket with bams for analysis
 if [ -z ${1} ]; then
-    num_bam_files=$(find -L ../data -name "*.bam" | wc -l)
-    if [ ${num_bam_files} -gt 0 ]; then
-        echo "Using bams in the /data folder"
-        data_dir="../data"
-    else
-        echo "There are no sample files available for this capsule.  Please either add some to the /data folder or provide a URL to an S3 bucket."
-    fi
+    chromosome=chr11
 else
-    s3_url=${1}
-    
-    temporary_data_dir=../scratch/data
-
-    # location to download the bams
-    if [ -z ${2} ]; then
-        data_dir=${temporary_data_dir}
-    else
-        data_dir=${2}
-    fi
-    
-    #get BAM file(s) that have been trimmed, aligned to reference, sorted, read groups adjusted if necessary, and indexed
-    echo "Downloading data from the S3 bucket at the provided URL."
-    aws s3 sync --no-sign-request --only-show-errors ${s3_url} ${data_dir}
+    chromosome=${1}
 fi
 
 
+if [ -z ${2} ]; then
+    start_position=10000
+else
+    start_position=${2}
+fi
 
 
 if [ -z ${3} ]; then
-    chromosome=chr11
+    end_position=1000000
 else
-    chromosome=${3}
+    end_position=${3}
 fi
+
 
 
 if [ -z ${4} ]; then
-    start_position=10000
-else
-    start_position=${4}
-fi
-
-
-if [ -z ${5} ]; then
-    end_position=1000000
-else
-    end_position=${5}
-fi
-
-
-
-if [ -z ${6} ]; then
     file_name="plot"
 else
-    file_name="${6}"
+    file_name="${4}"
 fi
 
 
 # If a reference file has not been specified in the app panel, find it
-if [ -z ${7} ]; then
+if [ -z ${5} ]; then
     reference=$(find -L ../data/ -name "*.fa")
 else
-    reference=${7}
+    reference=${5}
 fi
 
 # Check that there is only 1 reference
@@ -88,63 +59,63 @@ elif [ ${number_references} -gt 1 ]; then
 fi
 
 # make the path absolute
-reference=$PWD/${reference}
+#reference=$PWD/${reference}
 
 
 
 ## Auxilliary Parameters
 
-if [ -z ${8} ]; then
+if [ -z ${6} ]; then
     min_read_map_quality_discovery=""
 else
-    min_read_map_quality_discovery="--map_qual ${8}"
+    min_read_map_quality_discovery="--map_qual ${6}"
 fi
 
 
-if [ -z ${9} ]; then
+if [ -z ${7} ]; then
     BED_file=$(find -L ../data/ -name "*.bed")
 else
-    BED_file=${9}
+    BED_file=${7}
 fi
 
 
-if [ "${10}" == "no" ]; then
+if [ "${8}" == "no" ]; then
     paired_end_view=""
 else
     paired_end_view="--paired"
 fi
 
 
-if [ "${11}" == "no" ]; then
+if [ "${9}" == "no" ]; then
     supplementary_alignments=""
 else
     supplementary_alignments="--supplementary"
 fi
 
 
-if [ "${12}" == "no" ]; then
+if [ "${10}" == "no" ]; then
     show_clips=""
 else
     show_clips="--clip"
 fi
 
 
-if [ -z ${13} ]; then
+if [ -z ${11} ]; then
     num_horizontal_images=""
 else
-    num_horizontal_images="--split ${13}"
+    num_horizontal_images="--split ${11}"
 fi
 
 
-if [ -z ${14} ]; then
+if [ -z ${12} ]; then
     plot_width=""
 else
-    plot_width="--width ${14}"
+    plot_width="--width ${12}"
 fi
 
 
-if [ -z ${15} ]; then
+if [ -z ${13} ]; then
     plot_height=""
 else
-    plot_height="--height ${15}"
+    plot_height="--height ${13}"
 fi

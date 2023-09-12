@@ -1,7 +1,7 @@
 metadata_version: 1
 name: Wally visualizations
 description: |-
-  Wally creates a genomic alignment plot of reads in a specified region mapped to a reference.
+  Wally creates a genomic alignment plot of reads in a specified region mapped to a reference.  The visualization of genomic alignments was heavily inspired by IGV, and customized to visualize structural variation and CNVs.
 
   https://github.com/tobiasrausch/wally
 tags:
